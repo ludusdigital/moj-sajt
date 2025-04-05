@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduka - Platforma za online učenje</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            background-color: #f9fafb;
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-graduation-cap text-indigo-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Eduka</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Početna</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Kursevi</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Predavači</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">O nama</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">Prijavi se</button>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Početna</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Kursevi</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Predavači</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">O nama</a>
+                <div class="mt-4 pl-3">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">Prijavi se</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <div class="lg:w-1/2 text-white">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    <span class="block">Unapredite svoje znanje</span>
+                    <span class="block text-indigo-200">sa našim kursevima</span>
+                </h1>
+                <p class="mt-6 text-xl text-indigo-100 max-w-3xl">
+                    Eduka vam pruža priliku da učite od najboljih stručnjaka u svojoj oblasti. Pridružite se hiljadama zadovoljnih polaznika.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10">
+                        Započnite sada
+                    </a>
+                    <a href="#" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                        <i class="fas fa-play-circle mr-2"></i> Pogledajte video
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 mt-12 lg:mt-0">
+                <div class="relative">
+                    <div class="relative w-full rounded-lg shadow-xl overflow-hidden floating-animation">
+                        <img class="w-full" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Studenti uče">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Prosečna ocena</p>
+                                <div class="flex items-center">
+                                    <p class="text-lg font-semibold text-gray-900">4.9</p>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div class="text-center">
+                    <p class="text-4xl font-extrabold text-indigo-600">10,000+</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Zadovoljnih polaznika</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-extrabold text-indigo-600">200+</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Kurseva</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-extrabold text-indigo-600">50+</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Stručnih predavača</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-extrabold text-indigo-600">24/7</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Dostupna podrška</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Courses -->
+    <div class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Najpopularniji kursevi
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Odaberite kurs koji vam najviše odgovara i započnite svoje putovanje ka novim znanjima
+                </p>
+            </div>
+            
+            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden course-card transition duration-300 ease-in-out">
+                    <div class="relative pb-48 overflow-hidden">
+                        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Web Development">
+                        <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                            Popularno
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-indigo-600">Web Development</span>
+                            <span class="ml-auto text-xs font-medium text-gray-500">40 časova</span>
+                        </div>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">
+                            Kompletni kurs modernog web developmenta
+                        </h3>
+                        <p class="mt-3 text-base text-gray-500">
+                            Naučite HTML, CSS, JavaScript i React od nule do naprednog nivoa.
+                        </p>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=880&q=80" alt="Marko Petrović">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Marko Petrović</p>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <span class="ml-1 text-xs text-gray-500">(1,234)</span>
+                                </div>
+                            </div>
+                            <div class="ml-auto text-lg font-semibold text-indigo-600">
+                                12,999 RSD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden course-card transition duration-300 ease-in-out">
+                    <div class="relative pb-48 overflow-hidden">
+                        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Data Science">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-indigo-600">Data Science</span>
+                            <span class="ml-auto text-xs font-medium text-gray-500">60 časova</span>
+                        </div>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">
+                            Data Science i mašinsko učenje
+                        </h3>
+                        <p class="mt-3 text-base text-gray-500">
+                            Savladajte Python, NumPy, Pandas, Matplotlib i Scikit-learn za analizu podataka.
+                        </p>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=880&q=80" alt="Ana Marković">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Ana Marković</p>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star-half-alt text-yellow-400 text-xs"></i>
+                                    <span class="ml-1 text-xs text-gray-500">(876)</span>
+                                </div>
+                            </div>
+                            <div class="ml-auto text-lg font-semibold text-indigo-600">
+                                15,999 RSD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden course-card transition duration-300 ease-in-out">
+                    <div class="relative pb-48 overflow-hidden">
+                        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="Digital Marketing">
+                        <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                            Novi kurs
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <span class="text-sm font-medium text-indigo-600">Digitalni marketing</span>
+                            <span class="ml-auto text-xs font-medium text-gray-500">35 časova</span>
+                        </div>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">
+                            Kompletan digitalni marketing za 2023.
+                        </h3>
+                        <p class="mt-3 text-base text-gray-500">
+                            Naučite SEO, Google Ads, Facebook Ads, email marketing i analitiku.
+                        </p>
+                        <div class="mt-6 flex items-center">
+                            <div class="flex-shrink-0">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=880&q=80" alt="Jelena Nikolić">
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Jelena Nikolić</p>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <i class="far fa-star text-yellow-400 text-xs"></i>
+                                    <span class="ml-1 text-xs text-gray-500">(542)</span>
+                                </div>
+                            </div>
+                            <div class="ml-auto text-lg font-semibold text-indigo-600">
+                                9,999 RSD
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                    Pogledajte sve kurseve
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Zašto izabrati Eduka platformu?
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Naša platforma nudi sve što vam je potrebno za efikasno učenje
+                </p>
+            </div>
+
+            <div class="mt-20">
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature 1 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Pristupačni sadržaji</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Kursevi su prilagođeni svim nivoima znanja, od početnika do naprednih korisnika.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-chalkboard-teacher text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Iskustvo predavača</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Svi naši predavači su stručnjaci sa višegodišnjim iskustvom u svojim oblastima.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-certificate text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Certifikati</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Nakon završetka kursa dobijate sertifikat koji možete dodati u svoj CV.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-headset text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Podrška 24/7</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Naš tim je uvek tu da vam pomogne u rešavanju bilo kakvih problema.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Pristup sa svih uređaja</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Platforma je optimizovana za rad na računarima, tabletima i mobilnim telefonima.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mx-auto">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="text-lg font-medium text-gray-900">Zajednica</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Pridružite se našoj zajednici i diskutujte sa kolegama i predavačima.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-indigo-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Šta naši polazniku kažu
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Pročitajte iskustva ljudi koji su već prošli naše kurseve
+                </p>
+            </div>
+            
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm testimonial-card">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Nikola Jovanović">
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Nikola Jovanović</p>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "Kurs web developmenta je odličan! Nakon samo 3 meseca uspeo sam da promenim karijeru i sada radim kao frontend developer. Predavač je izuzetno stručan i uvek spreman da pomogne."
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="text-xs font-medium text-gray-500">Web Development kurs</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm testimonial-card">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Milica Savić">
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Milica Savić</p>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "Data Science kurs mi je otvorio oči za nove mogućnosti. Materijali su odlično strukturirani, a praktični zadaci su mi pomogli da steknem samopouzdanje u primeni stečenog znanja."
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="text-xs font-medium text-gray-500">Data Science kurs</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm testimonial-card">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Stefan Popović">
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Stefan Popović</p>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400 text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">
+                            "Digitalni marketing kurs mi je dao sve što mi je bilo potrebno da pokrenem sopstveni biznis. Sada imam klijente i uspešno vodim njihove kampanje zahvaljujući znanju stečenom na ovom kursu."
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="text-xs font-medium text-gray-500">Digitalni marketing kurs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-indigo-700">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Spremni da započnete?</span>
+                <span class="block text-indigo-200">Pridružite se hiljadama zadovoljnih polaznika danas.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                        Registrujte se besplatno
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 bg-opacity-60 hover:bg-opacity-70">
+                        Kontaktirajte nas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Eduka</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">O nama</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Karijere</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Novosti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Kursevi</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Svi kursevi</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Popularni</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Novi kursevi</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Besplatni kursevi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Podrška</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Pomoć</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Kontakt</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Uslovi korišćenja</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Pratite nas</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <h3 class="mt-8 text-sm font-semibold text-gray-300 tracking-wider uppercase">Preuzmite aplikaciju</h3>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="flex items-center justify-center px-3 py-2 border border-gray-600 rounded-md text-gray-300 hover:bg-gray-700">
+                            <i class="fab fa-apple mr-2"></i>
+                            <span class="text-xs">App Store</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-center px-3 py-2 border border-gray-600 rounded-md text-gray-300 hover:bg-gray-700">
+                            <i class="fab fa-google-play mr-2"></i>
+                            <span class="text-xs">Play Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+                <p class="text-base text-gray-400">
+                    &copy; 2023 Eduka, sva prava zadržana.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privatnost</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Uslovi</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Kolačići</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Course card hover effect
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
